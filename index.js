@@ -1,15 +1,22 @@
-// CommonJS Module
-// const http = require('http')
-// const {sum, difference} = require('./modules/calculate.js')
-
-// ES6 Module
-import http from 'http';
-import { sum, difference } from './modules/calculate.js';
+const http = require('http')
+const dotenv = require('dotenv')
+dotenv.config()
 
 const server = http.createServer((req, res) => {
-    console.log(sum(2, 3))
-    console.log(difference(10, 5))
-    res.end('BACKEND :)')
+    if(req.url == '/favicon.ico'){
+        return res.end()
+    }
+    console.log(process.env.EMAIL)
+    res.end('Hi')
 })
 
 server.listen(3000)
+
+/*
+  # Environment Variables:
+    - Install dotenv, Import and invoke config()
+    - Create .env file, add variables
+      - EMAIL=user@gmail.com
+    - To use these variables in server
+      - process.env.EMAIL
+*/

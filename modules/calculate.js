@@ -10,4 +10,4 @@ const difference = (num1, num2) => {
 // module.exports = { sum, difference }
 
 // ES6
-export {sum, difference};
+// export {sum, difference};
